@@ -1,0 +1,11 @@
+# switch redirect on (regwrite is not redirect for the fucks sake)
+RewriteEngine On
+# Don't apply to existing files
+RewriteCond %{REQUEST_FILENAME} !-f
+# Don't apply to existing directories
+RewriteCond %{REQUEST_FILENAME} !-d
+# Redirect ALL requests to index.php 
+#(ex.: http://mysite.com/THIS_VERY_DIRECTORY_WHERE_HTACCESS_IS/fuck.php -> will actually call http://mysite.com/THIS_VERY_DIRECTORY_WHERE_HTACCESS_IS/index.php
+# L means Last, required mod_rewrite to stop straight after execution
+# Shortly just a tiny boost
+RewriteRule .* index.php [L] 
